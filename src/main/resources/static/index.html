@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>极客青年-Dbeaver 密码在线破解</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://www.layuicdn.com/layui/css/layui.css" media="all">
+</head>
+<body>
+
+<div style="padding: 20px; background-color: #FAFAFA;">
+  <div class="layui-card" align="center">
+    <div class="layui-card-header">用法</div>
+    <div class="layui-card-body">
+      使用 everything 搜索 “credentials-config.json”，然后上传该文件，即可在线解密。
+    </div>
+    <div align="center">
+      <img src="example-1.png" border="3"/>
+    </div>
+  </div>
+</div>
+
+<hr/>
+<p align="center">
+  <button type="button" class="layui-btn" id="test3" align="center">
+    <i class="layui-icon"></i>上传文件
+  </button>
+</p>
+<hr/>
+<p align="center">
+  <a href="https://github.com/geekyouth/crack-dbeaver-password" target="_blank">powered by
+    geekyouth</a>
+</p>
+
+<script src="https://www.layuicdn.com/layui/layui.js" charset="utf-8"></script>
+<script>
+  layui.use('upload', function () {
+    var $ = layui.jquery
+        , upload = layui.upload
+        , table = layui.table
+    ;
+
+    //指定允许上传的文件类型
+    upload.render({
+      elem: '#test3',
+      url: '/decrypt/upload',
+      accept: 'file', //普通文件
+      done: function (res) {
+        console.info(res);
+
+        layer.open({
+          type: 1,
+          area: ["100%", "100%"],
+          title: "以下就是 dbeaver 密码，使用 ctrl + f 搜索关键字：",
+          content: '<pre><hr/>' + JSON.stringify(res, null, 2) + '</pre>',
+          shadeClose: true //点击遮罩关闭
+        });
+      }
+    });
+
+  });
+</script>
+
+</body>
+</html>
