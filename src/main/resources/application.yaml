@@ -1,0 +1,12 @@
+management.server.port: 8080
+management.endpoints.jmx.exposure.include: "*"
+management.endpoints.web.exposure.include: "*"
+management.endpoint.health.show-details: always
+
+server.port: 8080
+
+# 这是默认值，不需要修改。
+LOCAL_KEY_CACHE: -70, -69, 74, -97, 119, 74, -72, 83, -55, 108, 45, 101, 61, -2, 84, 74
+
+# 指定你的 credentials-config.json 绝对地址，可以先使用 everything 搜索关键词。
+CREDENTIALS_CONFIG: "C:/Users/Geek/AppData/Roaming/DBeaverData/workspace6/General/.dbeaver/credentials-config.json"
