@@ -1,10 +1,10 @@
 package cn.java666.tools.crackdbeaverpassword.service;
 
+import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
 import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.InvalidAlgorithmParameterException;
@@ -23,7 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * @author Geek
- * @date 2021-03-25 19:48:10 
+ * @date 2021-03-25 19:48:10
  */
 
 @Service
@@ -45,7 +45,7 @@ public class MyService {
       
       InputStream byteStream;
       if (file == null) {
-        byte[] fileBinary = new FileInputStream(StrUtil.isNotEmpty(CREDENTIALS_CONFIG) ? CREDENTIALS_CONFIG : DEFAULT_CREDENTIALS_CONFIG).readAllBytes();
+        byte[] fileBinary = FileUtil.readBytes(StrUtil.isNotEmpty(CREDENTIALS_CONFIG) ? CREDENTIALS_CONFIG : DEFAULT_CREDENTIALS_CONFIG);
         byteStream = new ByteArrayInputStream(fileBinary);
       } else {
         byteStream = file.getInputStream();
@@ -78,8 +78,7 @@ public class MyService {
   }
   
   /**
-   * int[] --> byte[]
-   * https://stackoverflow.com/a/66796122/9633499
+   * int[] --> byte[] https://stackoverflow.com/a/66796122/9633499
    */
   private byte[] int2Byte(int[] data) throws IOException {
     System.out.println(JSONUtil.toJsonStr(data));

@@ -58,3 +58,6 @@ IntelliJ IDEA中报错：Error: java: 无效的目标发行版本: 11
 
 ### 1.1.0:
 - 使用 github action 持续集成，编译 docker image。
+
+### 1.1.1:
+- 降级 JDK 到 1.8，太多场景无法兼容 jdk11。

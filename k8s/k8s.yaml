@@ -44,7 +44,7 @@ spec:
               cpu: "512m"
             limits:
               memory: "2048Mi"
-              cpu: "1024m"
+              cpu: "1"
       restartPolicy: Always
       schedulerName: default-scheduler
       terminationGracePeriodSeconds: 30
