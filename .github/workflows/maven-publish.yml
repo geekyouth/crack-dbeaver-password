@@ -23,10 +23,12 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+#    - name: Build with Maven
+#      run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+      run: >-
+        export APP_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)-snapshot-$(date +%Y%m%d);
+        mvn deploy source:jar -s $GITHUB_WORKSPACE/settings.xml versions:set -DnewVersion=APP_VERSION;
       env:
         GITHUB_TOKEN: ${{ github.token }}
