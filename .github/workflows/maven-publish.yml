@@ -4,10 +4,10 @@
 name: Maven Package
 
 on:
-  push:
-    branches: [ dev ]
-#  release:
-#    types: [created]
+  #push:
+    #branches: [ master ]
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -28,7 +28,6 @@ jobs:
 
     - name: Publish to GitHub Packages Apache Maven
       run: >-
-        export APP_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)-snapshot-$(date +%Y%m%d);
-        mvn deploy source:jar -s $GITHUB_WORKSPACE/settings.xml versions:set -DnewVersion=APP_VERSION;
+        mvn deploy source:jar -q -s $GITHUB_WORKSPACE/settings.xml
       env:
         GITHUB_TOKEN: ${{ github.token }}
