@@ -1,7 +1,8 @@
 FROM maven:3.6.3-openjdk-8-slim AS build
 COPY src /app/src
 COPY pom.xml /app
-RUN mvn -f /app/pom.xml clean package
+COPY .m2/settings.xml /.m2/settings.xml
+RUN mvn -f /app/pom.xml clean package -DskipTests -s /.m2/settings.xml --batch-mode -e
 
 FROM openjdk:8-jre-slim
 LABEL maintainer="https://github.com/geekyouth"
