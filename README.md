@@ -25,7 +25,7 @@ dbeaver 客户端非常强大，可以连接一百多种数据库。但是最难
 
 ## Docker 镜像速食：
 ```
-docker run -d -p 8080:8080 --name crack-dbeaver-password-8080 geekyouth/crack-dbeaver-password:latest
+docker run -d -p 80:80 --name crack-dbeaver-password-80 geekyouth/crack-dbeaver-password:latest
 ```
 
 ---
