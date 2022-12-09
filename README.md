@@ -26,7 +26,7 @@ dbeaver 客户端非常强大，可以连接一百多种数据库。但是最难
 
 ## Docker 镜像速食：
 ```
-docker run -d -p 80:80 --name crack-dbeaver-password-80 geekyouth/crack-dbeaver-password:latest
+docker run -d -p 8080:80 --name crack-dbeaver-password-80 geekyouth/crack-dbeaver-password:latest
 ```
 
 ---
@@ -54,6 +54,10 @@ IntelliJ IDEA中报错：Error: java: 无效的目标发行版本: 11
 <https://juejin.cn/post/6844903791498674183>
 
 ## 更新日志：
+### 1.1.5:
+Springboot + docker 生态最佳实践。
+- 优化 dockerfile
+- 提供 docker-compose 自动编译配置文件
 ### 1.0.1：
 - 解决弹层无法展示 json 的问题 
 

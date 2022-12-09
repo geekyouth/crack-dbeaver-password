@@ -1,8 +1,7 @@
 FROM maven:3.6.3-openjdk-8-slim AS build
-COPY src /app/src
-COPY pom.xml /app
-COPY .m2/settings.xml /.m2/settings.xml
-RUN mvn -f /app/pom.xml clean package -DskipTests -s /.m2/settings.xml --batch-mode -e
+WORKDIR /code
+COPY . .
+RUN mvn -f ./pom.xml clean package -DskipTests -s ./.m2/settings.xml -T 4C -e
 
 FROM openjdk:8-jre-slim
 LABEL maintainer="https://github.com/geekyouth"
@@ -10,7 +9,7 @@ ENV LANG=zh_CN.UTF-8
 ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-COPY --from=build /app/target/*.jar /app.jar
+COPY --from=build /code/target/*.jar /app.jar
 
 EXPOSE 80
 ENTRYPOINT ["java", "-Duser.timezone=GMT+08", "-Dfile.encoding=UTF-8", "-Dsun.jnu.encoding=UTF-8", "-jar", "/app.jar"]

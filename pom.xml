@@ -6,7 +6,7 @@
     
     <groupId>cn.java666.tools</groupId>
     <artifactId>crack-dbeaver-password</artifactId>
-    <version>1.1.4</version>
+    <version>1.1.5-RELEASE</version>
     
     <name>crack-dbeaver-password</name>
     <description>crack-dbeaver-password by Spring Boot</description>
