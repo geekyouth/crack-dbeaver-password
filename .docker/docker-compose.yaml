@@ -1,0 +1,14 @@
+# docker v2 有大坑，不支持旧版，不能为 springboot 项目打包运行
+services:
+  crack-dbeaver-password:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+      tags: # 不推荐使用 docker-compose，优先使用 docker compose
+        - geekyouth/crack-dbeaver-password:${APP_VERSION?err} # 强制使用变量，默认引用 .env
+        - geekyouth/crack-dbeaver-password:latest
+    container_name: crack-dbeaver-password
+    env_file:
+      - .env
+    ports:
+      - 8080:80
