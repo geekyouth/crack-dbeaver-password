@@ -1,5 +1,6 @@
 # https://stackoverflow.com/questions/61388905/github-action-to-maven-build-followed-by-docker-build-push
 # https://zhuanlan.zhihu.com/p/90122357
+# 不支持 --- 分隔符
 
 name: Docker Image CI
 
