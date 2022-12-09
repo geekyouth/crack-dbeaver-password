@@ -3,7 +3,7 @@ services:
   crack-dbeaver-password:
     build:
       context: ../
-      dockerfile: .docker/Dockerfile
+      dockerfile: Dockerfile
       tags: # 不推荐使用 docker-compose，优先使用 docker compose
         - geekyouth/crack-dbeaver-password:${APP_VERSION?err} # 强制使用变量，默认引用 .env
         - geekyouth/crack-dbeaver-password:latest
