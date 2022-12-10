@@ -1,15 +1,19 @@
+# https://www.okteto.com/docs/cloud/ssl/
+
 apiVersion: v1
 kind: Service
 metadata:
   name: crack-dbeaver-password
   labels:
     app: crack-dbeaver-password
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
 spec:
   type: ClusterIP
   ports:
-    - port: 18080
+    - port: 80
       protocol: TCP
-      targetPort: 8080
+      targetPort: 80
   selector:
     app: crack-dbeaver-password
 ---
