@@ -4,8 +4,8 @@
 name: Maven deploy for master
 
 on:
-  push:
-    branches: [ master ]
+#  push:
+#    branches: [ master ]
   release:
     types: [created]
 

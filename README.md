@@ -1,4 +1,5 @@
 # 在线体验：
+<https://crack-dbeaver-password-geekyouth.cloud.okteto.net/>
 <https://crack-dbeaver-password.onrender.com/>  
 <https://crack-dbeaver-password.herokuapp.com/>
 
@@ -54,6 +55,8 @@ IntelliJ IDEA中报错：Error: java: 无效的目标发行版本: 11
 <https://juejin.cn/post/6844903791498674183>
 
 ## 更新日志：
+### 1.1.6:
+- 部署到 okteto
 ### 1.1.5:
 Springboot + docker 生态最佳实践。
 - 优化 dockerfile
