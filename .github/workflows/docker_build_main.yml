@@ -1,7 +1,7 @@
 # https://stackoverflow.com/questions/61388905/github-action-to-maven-build-followed-by-docker-build-push
 # https://zhuanlan.zhihu.com/p/90122357
 
-name: Docker CI for master
+name: Docker CI for main
 
 on:
   push:
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
+    - name: Build docker image and push
       run: >-
         sudo apt-get install -y maven;
         export APP_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout);
