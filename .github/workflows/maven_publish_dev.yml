@@ -29,3 +29,5 @@ jobs:
 # docker run --rm -v $(pwd):/repo --workdir /repo rhysd/actionlint:latest -color
 # https://rhysd.github.io/actionlint/
 # https://stackoverflow.com/questions/18100389/maven-override-project-version-from-command-line
+
+# mvn versions:set mvn deploy 不能放在一起，否则无效
