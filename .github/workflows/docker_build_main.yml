@@ -23,3 +23,7 @@ jobs:
         docker build . -f Dockerfile -t geekyouth/crack-dbeaver-password:latest;
         docker push geekyouth/crack-dbeaver-password:${APP_VERSION};
         docker push geekyouth/crack-dbeaver-password:latest;
+
+        docker login -u geekyouth -p ${{ secrets.DOCKER_CI_GITHUB_TOKEN }} ghcr.io;
+        docker push ghcr.io/geekyouth/crack-dbeaver-password:${APP_VERSION};
+        docker push ghcr.io/geekyouth/crack-dbeaver-password:latest;
