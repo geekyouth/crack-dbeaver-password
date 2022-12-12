@@ -22,8 +22,7 @@ jobs:
           cache: "maven"
       - name: Publish to GitHub Packages Maven
         run: >-
-          export APP_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)-RELEASE;
-          mvn clean deploy -DskipTests=true -T 2C -DrepositoryId=github -Dversion=${APP_VERSION}
+          mvn clean deploy -DskipTests=true -T 2C -q
         env:
           GITHUB_TOKEN: ${{ github.token }}
 # docker run --rm -v $(pwd):/repo --workdir /repo rhysd/actionlint:latest -color
