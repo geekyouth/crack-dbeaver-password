@@ -1,11 +1,11 @@
 # This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
 # For more information see: https://github.com/actions/setup-java#apache-maven-with-a-settings-path
 
-name: Maven deploy for master
+name: Maven deploy for main
 
 on:
   #  push:
-  #    branches: [ master ]
+  #    branches: [ main ]
   release:
     types: [ created ]
 
@@ -20,9 +20,10 @@ jobs:
           java-version: 8
           distribution: adopt
           cache: "maven"
-      - name: Publish to GitHub Packages Apache Maven
+      - name: Publish to GitHub Packages Maven
         run: >-
-          mvn deploy -DskipTests=true -T 2C 
+          export APP_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)-RELEASE;
+          mvn clean deploy -DskipTests=true -T 2C -DrepositoryId=github -Dversion=${APP_VERSION}
         env:
           GITHUB_TOKEN: ${{ github.token }}
 # docker run --rm -v $(pwd):/repo --workdir /repo rhysd/actionlint:latest -color
