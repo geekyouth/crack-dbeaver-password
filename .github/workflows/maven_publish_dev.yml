@@ -1,0 +1,31 @@
+# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
+# For more information see: https://github.com/actions/setup-java#apache-maven-with-a-settings-path
+
+name: Maven deploy for dev
+
+on:
+  push:
+    branches: [ dev ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Java8
+        uses: actions/setup-java@v3
+        with:
+          java-version: 8
+          distribution: adopt
+          cache: maven
+      - name: Publish to GitHub Packages Maven
+        run: >-
+          export APP_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)-snapshot-$(date +%Y%m%d);
+          echo APP_VERSION=${APP_VERSION};
+          mvn clean versions:set -DnewVersion=${APP_VERSION} -DskipTests=true -T 2C;
+          mvn deploy -DskipTests=true -T 2C;
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+# docker run --rm -v $(pwd):/repo --workdir /repo rhysd/actionlint:latest -color
+# https://rhysd.github.io/actionlint/
+# https://stackoverflow.com/questions/18100389/maven-override-project-version-from-command-line
