@@ -23,6 +23,7 @@ jobs:
       - name: Publish to GitHub Packages Maven
         run: >-
           export APP_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)-snapshot-$(date +%Y%m%d);
-          mvn clean deploy -DskipTests=true -T 2C -DrepositoryId=github -Dversion=${APP_VERSION}
+          echo APP_VERSION=${APP_VERSION};
+          mvn clean deploy -DskipTests=true -T 2C -DrepositoryId=github -Dversion=${APP_VERSION} -q
         env:
           GITHUB_TOKEN: ${{ github.token }}
