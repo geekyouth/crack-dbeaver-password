@@ -20,8 +20,10 @@ jobs:
         sudo apt-get install -y maven;
         export APP_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)-snapshot-$(date +%Y%m%d);
         docker login -u geekyouth -p ${{ secrets.DOCKER_CI_TOKEN }};
-        docker build . -f Dockerfile -t geekyouth/crack-dbeaver-password:${APP_VERSION};
-        docker build . -f Dockerfile -t geekyouth/crack-dbeaver-password:latest-snapshot;
+        docker build . -f Dockerfile -t geekyouth/crack-dbeaver-password:${APP_VERSION} \
+          -t ghcr.io/geekyouth/crack-dbeaver-password:${APP_VERSION};
+        docker build . -f Dockerfile -t geekyouth/crack-dbeaver-password:latest-snapshot \
+          -t ghcr.io/geekyouth/crack-dbeaver-password:latest-snapshot;
         docker push geekyouth/crack-dbeaver-password:${APP_VERSION};
         docker push geekyouth/crack-dbeaver-password:latest-snapshot;
         
