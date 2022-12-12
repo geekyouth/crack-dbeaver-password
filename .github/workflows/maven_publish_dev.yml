@@ -24,6 +24,6 @@ jobs:
         run: >-
           export APP_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)-snapshot-$(date +%Y%m%d);
           echo APP_VERSION=${APP_VERSION};
-          mvn clean deploy -DskipTests=true -T 2C -DrepositoryId=github -Dversion=${APP_VERSION} -q
+          mvn clean deploy:deploy-file -DskipTests=true -T 2C -DrepositoryId=github -Dversion=${APP_VERSION} -q
         env:
           GITHUB_TOKEN: ${{ github.token }}
