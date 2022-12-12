@@ -2,7 +2,8 @@
 [![Maven deploy for main](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_main.yml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_main.yml)
 ---
 # 在线体验：
-<https://crack-dbeaver-password-geekyouth.cloud.okteto.net/>
+<https://crack-dbeaver-password-geekyouth.up.railway.app/>  
+<https://crack-dbeaver-password-geekyouth.cloud.okteto.net/>  
 <https://crack-dbeaver-password.onrender.com/>  
 <https://crack-dbeaver-password.herokuapp.com/>
 
