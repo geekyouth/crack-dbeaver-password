@@ -38,8 +38,8 @@ jobs:
           token: ${{ secrets.OKTETO_TOKEN_GITHUB }}
       - name: Activate personal namespace
         uses: okteto/namespace@2.10.1
-#        with:
-#          name: geekyouth
+        with:
+          name: github-geekyouth
       - name: Create deployment
         uses: okteto/apply@2.10.1
         with:
