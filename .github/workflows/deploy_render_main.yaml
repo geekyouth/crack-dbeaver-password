@@ -7,11 +7,12 @@ on:
 
 jobs:
   deploy:
-    name: Wait for Deploy
     runs-on: ubuntu-18.04
     steps:
-      - name: Wait for Render Deployment
+      - name: Render deploying
         uses: bounceapp/render-action@0.2.0
         with:
           token: ${{ secrets.RENDER_TOKEN_GITHUB }}
           service-id: srv-ce42vsirrk0djk3sf250
+          email: ${{ secrets.RENDER_EMAIL_GITHUB }}
+          password: ${{ secrets.RENDER_PASSWORD_GITHUB }}
