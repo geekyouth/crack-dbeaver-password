@@ -1,0 +1,17 @@
+# https://github.com/Bounceapp/render-action
+name: deploy on render
+
+on:
+  release:
+    types: [ created ]
+
+jobs:
+  deploy:
+    name: Wait for Deploy
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Wait for Render Deployment
+        uses: bounceapp/render-action@0.2.0
+        with:
+          token: ${{ secrets.RENDER_TOKEN_GITHUB }}
+          service-id: srv-ce42vsirrk0djk3sf250

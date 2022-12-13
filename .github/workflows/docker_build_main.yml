@@ -4,28 +4,43 @@
 name: Docker CI for main
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  release:
+    types: [ created ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Build docker image and push
-      run: >-
-        sudo apt-get install -y maven;
-        export APP_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout);
-        docker login -u geekyouth -p ${{ secrets.DOCKER_CI_TOKEN }};
-        docker build . -f Dockerfile -t geekyouth/crack-dbeaver-password:${APP_VERSION} \
-          -t ghcr.io/geekyouth/crack-dbeaver-password:${APP_VERSION};
-        docker build . -f Dockerfile -t geekyouth/crack-dbeaver-password:latest \
-          -t ghcr.io/geekyouth/crack-dbeaver-password:latest;
-        docker push geekyouth/crack-dbeaver-password:${APP_VERSION};
-        docker push geekyouth/crack-dbeaver-password:latest;
-
-        docker login -u geekyouth -p ${{ secrets.DOCKER_CI_GITHUB_TOKEN }} ghcr.io;
-        docker push ghcr.io/geekyouth/crack-dbeaver-password:${APP_VERSION};
-        docker push ghcr.io/geekyouth/crack-dbeaver-password:latest;
+      - uses: actions/checkout@v2
+      - name: Build docker image and push
+        run: >-
+          sudo apt-get install -y maven;
+          export APP_VERSION=$(mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)-RELEASE-$(date +%Y%m%d);
+          docker login -u geekyouth -p ${{ secrets.DOCKER_CI_TOKEN }};
+          docker build . -f Dockerfile -t geekyouth/crack-dbeaver-password:${APP_VERSION} \
+            -t ghcr.io/geekyouth/crack-dbeaver-password:${APP_VERSION};
+          docker build . -f Dockerfile -t geekyouth/crack-dbeaver-password:latest \
+            -t ghcr.io/geekyouth/crack-dbeaver-password:latest;
+          docker push geekyouth/crack-dbeaver-password:${APP_VERSION};
+          docker push geekyouth/crack-dbeaver-password:latest;
+          
+          docker login -u geekyouth -p ${{ secrets.DOCKER_CI_GITHUB_TOKEN }} ghcr.io;
+          docker push ghcr.io/geekyouth/crack-dbeaver-password:${APP_VERSION};
+          docker push ghcr.io/geekyouth/crack-dbeaver-password:latest;
+  deploy:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
+      - uses: actions/checkout@v2
+      - uses: okteto/login@master
+        with:
+          token: ${{ secrets.OKTETO_TOKEN_GITHUB }}
+      - name: Activate personal namespace
+        uses: okteto/namespace@master
+        with:
+          name: ${GITHUB_REPOSITORY_OWNER}
+      - name: Create deployment
+        uses: okteto/apply@master
+        with:
+          manifest: k8s/k8s.yaml
