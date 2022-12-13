@@ -1,7 +1,8 @@
-[![Docker CI for dev](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/docker_build_dev.yml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/docker_build_dev.yml)
-[![Docker CI for main](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/docker_build_main.yml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/docker_build_main.yml)
-[![Maven deploy for main](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_main.yml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_main.yml)
-[![Maven deploy for dev](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_dev.yml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_dev.yml)
+[![Docker CI for snapshot](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/docker_build_snapshot.yml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/docker_build_snapshot.yml)
+[![Docker CI for release](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/docker_build_release.yml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/docker_build_release.yml)
+[![Maven deploy for snapshot](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_snapshot.yml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_snapshot.yml)
+[![Maven deploy for release](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_release.yml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_release.yml)
+[![😊Deploy to Railway after release](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/deploy_railway_release.yaml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/deploy_railway_release.yaml)
 ---
 # 在线体验：
 <https://crack-dbeaver-password-geekyouth.up.railway.app/>  

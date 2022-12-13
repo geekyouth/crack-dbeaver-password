@@ -39,7 +39,7 @@ jobs:
       - name: Activate personal namespace
         uses: okteto/namespace@2.10.1
         with:
-          name: ${GITHUB_REPOSITORY_OWNER}
+          namespace: github-geekyouth
       - name: Create deployment
         uses: okteto/apply@2.10.1
         with:
