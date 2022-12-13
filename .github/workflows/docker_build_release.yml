@@ -1,7 +1,7 @@
 # https://stackoverflow.com/questions/61388905/github-action-to-maven-build-followed-by-docker-build-push
 # https://zhuanlan.zhihu.com/p/90122357
 
-name: Docker CI for main
+name: Docker CI for release
 
 on:
   release:
@@ -33,14 +33,14 @@ jobs:
       - build
     steps:
       - uses: actions/checkout@v2
-      - uses: okteto/login@master
+      - uses: okteto/login@2.10.1
         with:
           token: ${{ secrets.OKTETO_TOKEN_GITHUB }}
       - name: Activate personal namespace
-        uses: okteto/namespace@master
+        uses: okteto/namespace@2.10.1
         with:
           name: ${GITHUB_REPOSITORY_OWNER}
       - name: Create deployment
-        uses: okteto/apply@master
+        uses: okteto/apply@2.10.1
         with:
           manifest: k8s/k8s.yaml
