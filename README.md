@@ -2,7 +2,6 @@
 [![Docker CI for release](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/docker_build_release.yml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/docker_build_release.yml)
 [![Maven deploy for snapshot](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_snapshot.yml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_snapshot.yml)
 [![Maven deploy for release](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_release.yml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/maven_publish_release.yml)
-[![😊Deploy to Railway after release](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/deploy_railway_release.yaml/badge.svg)](https://github.com/geekyouth/crack-dbeaver-password/actions/workflows/deploy_railway_release.yaml)
 ---
 # 在线体验：
 <https://crack-dbeaver-password-geekyouth.up.railway.app/>  
