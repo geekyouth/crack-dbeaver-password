@@ -3,6 +3,10 @@ name: Deploy to Railway
 on:
   release:
     types: [ created ]
+  push:
+    branches:
+      - +RELEASE
+      - main
 
 jobs:
   deploy:
@@ -11,7 +15,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 16
+      #      - name: Install packages
+      #        run: yarn install --frozen-lockfile
       - name: Install Railway
         run: npm i -g @railway/cli
       - name: Deploy
