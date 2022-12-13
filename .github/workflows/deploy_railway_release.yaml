@@ -1,12 +1,8 @@
-name: Deploy to Railway
+name: 😊Deploy to Railway after release
 
 on:
   release:
     types: [ created ]
-  push:
-    branches:
-      - +RELEASE
-      - main
 
 jobs:
   deploy:
@@ -16,8 +12,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 16
-      #      - name: Install packages
-      #        run: yarn install --frozen-lockfile
       - name: Install Railway
         run: npm i -g @railway/cli
       - name: Deploy

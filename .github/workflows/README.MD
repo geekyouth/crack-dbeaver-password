@@ -1,5 +1,5 @@
 # 开源生态 CICD 流程 TODO
-# https://wangchujiang.com/github-actions/
+<https://wangchujiang.com/github-actions>
 
 ```yaml
 trigger:

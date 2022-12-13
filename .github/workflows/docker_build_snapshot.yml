@@ -2,7 +2,7 @@
 # https://zhuanlan.zhihu.com/p/90122357
 # 不支持 --- 分隔符
 
-name: Docker CI for dev
+name: Docker CI for snapshot
 
 on:
   push:
