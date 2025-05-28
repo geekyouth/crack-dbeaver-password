@@ -5,8 +5,8 @@
 ---
 # 在线体验：
 <https://crack-dbeaver-password.onrender.com/>  
-<https://crack-dbeaver-password.r.java666.cn/>
-<https://crack-dbeaver-password.claw.java666.cn>
+<https://crack-dbeaver-password.r.java666.cn/>  
+<http://crack-dbeaver-password.claw.java666.cn>
 
 > dbeaver 密码破解工具，我的密码必须由我做主。调试阶段可以配合 postman 食用。
 
